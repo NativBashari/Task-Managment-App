@@ -1,0 +1,16 @@
+    <div [ngClass]="task.isChecked === true? 'bg-danger' : 'bg-info'" class="container border rounded">      
+            <div class="aligns-items-center d-flex justify-content-center">
+                <h2>{{task.title}}</h2>
+            </div>
+            <div class="aligns-items-center d-flex justify-content-center">
+                <p>{{task.description}}</p>
+            </div>
+            <div class="aligns-items-center d-flex justify-content-center">
+                <p>{{task.priority}}</p>
+            </div> 
+            <div class="aligns-items-center d-flex justify-content-center">
+                <button (click)="taskIsDone(task)" *ngIf="!task.isChecked" class="btn btn-success">Done!</button>
+                <button (click)="taskIsDone(task)" *ngIf="task.isChecked" class="btn btn-warning">UnDone</button>
+                <button (click)="deleteItem(task.id)" class="btn btn-danger">Delete</button>
+            </div>  
+    </div>    

@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="row">
+        <div *ngFor="let item of tasksList" class="col-6" >
+            <task-item (onDelete)="deleteHandler($event)" [task]="item"></task-item>
+        </div>
+    </div>
+   
+</div>
+
