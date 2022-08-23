@@ -1,4 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Task } from 'src/models/task.model';
 import TaskService from 'src/services/taskService.service';
 
@@ -10,7 +11,7 @@ import TaskService from 'src/services/taskService.service';
 export class AddItemComponent implements OnInit {
 
   task: Task;
-  constructor(private service: TaskService) {
+  constructor(private service: TaskService, private router: Router) {
     this.task= new Task("","",false,0);
    }
 
@@ -19,7 +20,9 @@ export class AddItemComponent implements OnInit {
   addItem(){
     this.service.post(this.task).subscribe((response) => {
       console.log(response);
+      this.router.navigateByUrl("/list");
     })
+    
   }
 
 }

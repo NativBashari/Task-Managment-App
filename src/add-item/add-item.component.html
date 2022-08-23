@@ -1,25 +1,31 @@
 <div class="container bg-info w-25 rounded ">
-    <div class="d-flex flex-column">
-        <h2 class="d-flex justify-content-center">Add note</h2>        
-    </div>
-
-        <div>
-            <label>Title: </label>
-            <input class="form-control" type="text" [(ngModel)]="task.title" placeholder="Title">
-        </div>
-
-        <div>
-            <label>Description: </label>
-            <input class="form-control" type="text" [(ngModel)]="task.description" placeholder="Description">
-        </div>
-
-        <div>
-            <label>Priority</label>
-            <input class="form-control"  type="number" [(ngModel)]="task.priority">
-        </div>
+    <form>
         <div class="d-flex flex-column">
-            <button type="submit" (click)="addItem()" class="d-flex justify-content-center btn btn-success mt-2">Add task</button>
-        </div>
+            <h2 class="d-flex justify-content-center">Add note</h2>        
+        </div>  
+            <div>
+                <label>Title: </label>
+                <input name="title" class="form-control" type="text" [(ngModel)]="task.title" placeholder="Title" required="" maxlength="15" minlength="4" #title ="ngModel">
+                <div class="error" *ngIf="title.errors?.['required']">Title field is requierd.</div>
+                <div class="error" *ngIf="title.errors?.['minlength']">Title field min length 5.</div>
+                <div class="error" *ngIf="title.errors?.['maclength']">Title field max length 15.</div>
+            </div>
+    
+            <div>
+                <label>Description: </label>
+                <input name="description" class="form-control" type="text" [(ngModel)]="task.description" placeholder="Description">
+            </div>
+    
+            <div>
+                <label>Priority</label>
+                <input name="priority" class="form-control"  type="number" [(ngModel)]="task.priority">
+            </div>
+            <div class="d-flex flex-column">
+                <button type="submit" (click)="addItem()" class="d-flex justify-content-center btn btn-success mt-2">Add task</button>
+            </div>
+    </form>
+</div>
+  
 
 
 

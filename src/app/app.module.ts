@@ -11,7 +11,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DoneListComponent } from '../done-list/done-list.component';
 import { HeadComponentComponent } from 'src/head-component/head-component.component';
 import DoneService from 'src/services/doneService.service';
-import { routing } from './routers.module';
+import { routing } from './routes';
+import { TaskDetailsComponent } from '../task-details/task-details.component';
+import { BothListsComponent } from '../both-lists/both-lists.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { routing } from './routers.module';
     TaskListComponent,
     AddItemComponent,
     DoneListComponent,
-    HeadComponentComponent
+    HeadComponentComponent,
+    TaskDetailsComponent,
+    BothListsComponent
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,9 @@ export class TaskService{
     get(){
         return this.client.get("http://localhost:3030/tasks");
     }
+    getById(id: number){
+        return this.client.get("http://localhost:3030/tasks/"+ id);
+    }
     post(task: Task){
         return this.client.post("http://localhost:3030/tasks", task);
     }
